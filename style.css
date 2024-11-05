@@ -1,0 +1,78 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5dc; /* Fondo color crema, similar al estilo de las interfaces de Pokémon */
+    color: #3b4cca; /* Azul Pokémon clásico */
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Title */
+h1 {
+    font-size: 2.5em;
+    color: #ffcb05; /* Color amarillo Pokémon */
+    text-shadow: 2px 2px 0px #3b4cca, 4px 4px 0px #ffcb05;
+    margin-bottom: 20px;
+}
+
+/* Simulator button */
+button {
+    background-color: #ff0000; /* Rojo Poké Ball */
+    border: 2px solid #3b4cca; /* Azul clásico */
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px #3b4cca;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 0px #3b4cca;
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 2px 2px 0px #3b4cca;
+}
+
+/* Results display */
+#resultados {
+    background-color: #ffcb05; /* Amarillo Pokémon */
+    border: 2px solid #3b4cca;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 0px #3b4cca;
+}
+
+#resultados p {
+    font-size: 1.5em;
+    color: #2a75bb; /* Azul más oscuro, inspirado en los colores de las fuentes de Pokémon */
+    margin: 10px 0;
+}
+
+/* Custom styles for inputs and numbers */
+input[type="number"] {
+    padding: 10px;
+    border: 2px solid #3b4cca;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+/* For larger devices */
+@media (min-width: 768px) {
+    button {
+        font-size: 22px;
+        padding: 20px 40px;
+    }
+
+    #resultados p {
+        font-size: 1.8em;
+    }
+}
