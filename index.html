@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,81 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Librería externa -->
 </head>
 <body>
     <h1>Simulador</h1>
     <div id="simulator">
-        
-    <input type="number" id="numero1" placeholder="Ingresa el primer número">
-    <input type="number" id="numero2" placeholder="Ingresa el segundo número">
-    <button id="startBtn">Iniciar Simulador</button>
-    
+        <input type="number" id="numero1" placeholder="Ingresa el primer número">
+        <input type="number" id="numero2" placeholder="Ingresa el segundo número">
+        <button id="startBtn">Iniciar Simulador</button>
     </div>
 
-    <!-- Este es el div donde se mostrarán los resultados -->
     <div id="resultados"></div>
+    <canvas id="grafico" width="400" height="200"></canvas> <!-- Gráfico -->
 
-    <!-- Colocar el script aquí para asegurarse de que el HTML esté cargado -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let numeros = JSON.parse(localStorage.getItem("numeros")) || []; // Load saved numbers or initialize empty
+    <!-- Pokémon Display -->
+    <div id="pokemon">
+        <h2>Pokémon Aleatorio</h2>
+        <p id="pokemonName"></p>
+        <img id="pokemonImage" src="" alt="Imagen Pokémon">
+        <button id="changePokemonBtn">Cambiar Pokémon</button> <!-- Nuevo botón -->
+    </div>
 
-            // Function to update results in the DOM
-            function actualizarSimulador() {
-                let numero1 = parseFloat(document.getElementById("numero1").value);
-                let numero2 = parseFloat(document.getElementById("numero2").value);
-
-                // Verify valid numbers before processing
-                if (!isNaN(numero1) && !isNaN(numero2)) {
-                    let simulador = {
-                        numero1: numero1,
-                        numero2: numero2,
-                        suma: function() {
-                            return this.numero1 + this.numero2;
-                        },
-                        resta: function() {
-                            return this.numero1 - this.numero2;
-                        },
-                        multiplicacion: function() {
-                            return this.numero1 * this.numero2;
-                        },
-                        division: function() {
-                            return this.numero2 !== 0 ? (this.numero1 / this.numero2) : "Error: No se puede dividir entre 0";
-                        }
-                    };
-
-                    // Display results in HTML
-                    let resultadosDiv = document.getElementById("resultados");
-                    resultadosDiv.innerHTML = `
-                        <p>Suma: ${simulador.suma()}</p>
-                        <p>Resta: ${simulador.resta()}</p>
-                        <p>Multiplicación: ${simulador.multiplicacion()}</p>
-                        <p>División: ${simulador.division()}</p>
-                    `;
-
-                    // Filter numbers greater than 10 and display them
-                    let mayoresA10 = [numero1, numero2].filter(num => num > 10);
-                    resultadosDiv.innerHTML += `<p>Números mayores a 10: ${mayoresA10.join(', ')}</p>`;
-
-                    // Update and display all entered numbers
-                    numeros.push(numero1, numero2);
-                    resultadosDiv.innerHTML += `<p>Números ingresados: ${numeros.join(', ')}</p>`;
-
-                    // Save to Local Storage
-                    localStorage.setItem("numeros", JSON.stringify(numeros));
-                }
-            }
-
-            // Add event listeners to button and inputs
-            document.getElementById("startBtn").addEventListener("click", actualizarSimulador);
-            document.getElementById("numero1").addEventListener("input", actualizarSimulador);
-            document.getElementById("numero2").addEventListener("input", actualizarSimulador);
-
-            // Load saved numbers from previous session if available
-            if (numeros.length > 0) {
-                document.getElementById("resultados").innerHTML += `<p>Números ingresados de la sesión anterior: ${numeros.join(', ')}</p>`;
-            }
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>

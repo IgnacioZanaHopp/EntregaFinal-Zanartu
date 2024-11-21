@@ -56,13 +56,50 @@ button:active {
     margin: 10px 0;
 }
 
-/* Custom styles for inputs and numbers */
-input[type="number"] {
-    padding: 10px;
+/* Pokémon Section */
+#pokemon {
+    margin-top: 20px;
+    padding: 15px;
     border: 2px solid #3b4cca;
-    border-radius: 5px;
-    margin: 10px;
-    font-size: 1.2em;
+    border-radius: 10px;
+    background-color: #ffcb05;
+    text-align: center; /* Asegura que todo esté centrado */
+}
+
+#pokemon img {
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+    display: block; /* Asegura que se comporte como un bloque */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#changePokemonBtn {
+    margin-top: 20px; /* Espacio entre la imagen y el botón */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ff0000; /* Color rojo Poké Ball */
+    border: 2px solid #3b4cca; /* Azul clásico */
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px #3b4cca;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#changePokemonBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 0px #3b4cca;
+}
+
+#changePokemonBtn:active {
+    transform: scale(0.98);
+    box-shadow: 2px 2px 0px #3b4cca;
 }
 
 /* For larger devices */
